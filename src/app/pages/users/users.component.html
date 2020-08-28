@@ -1,0 +1,72 @@
+<h1>Users</h1>
+<hr />
+<div class="grid">
+  <div>
+    <ul *ngIf="!isLoading; else loading">
+      <li *ngFor="let user of users | async">
+        {{ user.name }}
+      </li>
+    </ul>
+
+    <ng-template #loading>
+      <h1>isLoading...</h1>
+    </ng-template>
+  </div>
+
+  <div class="user-form">
+    <form (submit)="addUser()">
+      <label for="name"
+        >Name
+        <input
+          [(ngModel)]="userForm.name"
+          id="name"
+          name="name"
+          type="text"
+          placeholder="name"
+        />
+      </label>
+      <label for="username"
+        >User Name
+        <input
+          [(ngModel)]="userForm.username"
+          id="name"
+          name="name"
+          type="text"
+          placeholder="username"
+        />
+      </label>
+      <label for="website"
+        >Website
+        <input
+          [(ngModel)]="userForm.website"
+          id="name"
+          name="name"
+          type="text"
+          placeholder="website"
+        />
+      </label>
+      <label for="phone"
+        >Phone
+        <input
+          [(ngModel)]="userForm.phone"
+          id="name"
+          name="name"
+          type="phone"
+          placeholder="phone"
+        />
+      </label>
+      <label for="email"
+        >Email
+        <input
+          [(ngModel)]="userForm.email"
+          id="name"
+          name="name"
+          type="email"
+          placeholder="email"
+        />
+      </label>
+
+      <button [disabled]="isLoading" type="submit">Add User</button>
+    </form>
+  </div>
+</div>

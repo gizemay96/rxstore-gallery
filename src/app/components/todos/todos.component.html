@@ -1,0 +1,26 @@
+<h4>Todos</h4>
+<ul *ngIf="todos">
+  <li *ngFor="let todo of todos | async; index as i">
+    {{ todo.title }} , {{todo.text}}
+    <button (click)="deleteTodo(i)">Delete Todo</button>
+    <button (click)="editTodo(i)">Edit Todo</button>
+  </li>
+</ul>
+
+<div class="add-todo-form">
+  <form (submit)="addTodo()">
+    <input
+      type="text"
+      name="title"
+      placeholder="Todo Title"
+      [(ngModel)]="myTodo.title"
+    />
+    <input
+      type="text"
+      name="text"
+      placeholder="Todo Text"
+      [(ngModel)]="myTodo.text"
+    />
+    <button type="submit">Add Todo</button>
+  </form>
+</div>

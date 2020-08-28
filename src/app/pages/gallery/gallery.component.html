@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Gallery</h1>
+
+  <div class="grid">
+    <div *ngFor="let img of gallery; index as i" class="img-case">
+      <img [src]="img" alt="resim" (click)="openLightBox(i)" />
+    </div>
+  </div>
+</div>
+
+<app-lightbox
+  *ngIf="isLightBoxOpen"
+  [selectedImg]="selectedImg"
+  [gallery]="gallery"
+  (close)="isLightBoxOpen = false"
+  (change)="selectedImg = $event"
+  (next)="nextImg($event)"
+  (previous)="previousImg($event)"
+  [progress]="progress"
+></app-lightbox>

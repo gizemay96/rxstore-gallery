@@ -1,0 +1,20 @@
+<nav>
+  <h1>STORE APP</h1>
+  <h3>Current Count : {{ count | async }}</h3>
+  <a routerLink="/users">Users</a>
+  <a routerLink="/gallery">Gallery</a>
+</nav>
+
+<div class="grid">
+  <div>
+    <app-counter></app-counter>
+  </div>
+  <div>
+      <app-todos></app-todos>
+  </div>
+  <div>
+    <app-widget></app-widget>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
